@@ -9,9 +9,9 @@ RUN go get github.com/relax-space/lemon-wxpay-api && \
 # add application
 ADD . /go/src/lemon-green-wechat
 WORKDIR /go/src/lemon-green-wechat
-RUN tar xf tmp/wxcert.tar.gz
+RUN tar xf tmp/wxcert.tar.gz -C /go/src/github.com/relax-space/lemon-wxpay-sdk
 RUN go install
 
 EXPOSE 5000
 
-CMD ["green-wechat"]
+CMD ["lemon-green-wechat"]
